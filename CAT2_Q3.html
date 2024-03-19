@@ -1,0 +1,36 @@
+// Function to calculate tax based on basic pay
+function calculateTax(basicPay) {
+    if (basicPay > 50000) {
+      return basicPay * 0.20; // 20% tax
+    } else if (basicPay >= 20000 && basicPay <= 50000) {
+      return basicPay * 0.10; // 10% tax
+    } else {
+      return 0; // No tax for basic pay below 20000
+    }
+  }
+  
+  // Function to prompt user input and calculate pays
+  function calculatePay() {
+    // Prompt user input
+    const employeeName = prompt("Enter the employee's name:");
+    const hoursWorked = parseFloat(prompt("Enter the number of hours worked:"));
+    const ratePerHour = parseFloat(prompt("Enter the rate per hour:"));
+  
+    // Calculate basic pay
+    const basicPay = hoursWorked * ratePerHour;
+  
+    // Calculate tax
+    const tax = calculateTax(basicPay);
+  
+    // Calculate net pay
+    const netPay = basicPay - tax;
+  
+    // Output the result
+    console.log(Employee Name: ${employeeName});
+    console.log(Basic Pay: ${basicPay.toFixed(2)});
+    console.log(Tax: ${tax.toFixed(2)});
+    console.log(Net Pay: ${netPay.toFixed(2)});
+  }
+  
+  // Run the function to calculate pay
+  calculatePay();
